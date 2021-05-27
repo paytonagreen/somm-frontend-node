@@ -1,12 +1,20 @@
 require('dotenv').config();
+const db = require('../db/models')
 
 import express from 'express';
 
 const app = express();
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+console.log(process.env.DB_URL);
+
+app.get('/', async (req, res) => {
+  try {
+      await db.sequelize.authenticate();
+      console.log(`Connection established at ${process.env.PORT}`)
+  } catch (err) {
+      console.log('oops:', err)
+  }
 });
 
 app.listen(process.env.PORT, () => {
