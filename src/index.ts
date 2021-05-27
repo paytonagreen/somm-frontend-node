@@ -17,6 +17,14 @@ app.get('/', async (req, res) => {
   }
 });
 
+app.get('/proteins', async (req, res) => {
+  try {
+    await db.Proteins.findAll();
+  } catch (err) {
+    console.log(err)
+  }
+})
+
 app.listen(process.env.PORT, () => {
   console.log(`Oi I'm listening at http://localhost:${process.env.PORT}`);
 });
