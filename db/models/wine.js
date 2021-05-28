@@ -9,7 +9,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsToMany(models.Account, { through: 'AccountWines' });
+      this.belongsToMany(models.Country, { through: 'WineCountries' });
+      this.belongsToMany(models.Dish, { through: 'WineDishes' });
       this.belongsToMany(models.Grape, { through: 'WineGrapes' });
+      this.belongsToMany(models.Producer, { through: 'WineProducers' });
+      this.belongsToMany(models.Region, { through: 'WineRegions' });
+      this.belongsToMany(models.Sauce, { through: 'WineSauces' });
+      this.belongsToMany(models.Subregion, { through: 'WineSubregions' });
     }
   }
   Wine.init(
