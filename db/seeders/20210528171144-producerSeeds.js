@@ -1,6 +1,6 @@
 'use strict';
 
-const datedSeeds = require('../../lib/utils');
+const { dateSeeds } = require('../../lib/utils');
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {

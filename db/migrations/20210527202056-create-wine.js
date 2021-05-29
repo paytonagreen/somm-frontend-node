@@ -15,10 +15,6 @@ module.exports = {
       description: {
         type: Sequelize.STRING,
       },
-      hasVintage: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false,
-      },
       vintage: {
         type: Sequelize.INTEGER,
       },

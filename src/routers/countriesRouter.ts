@@ -1,12 +1,13 @@
 import express from 'express';
+
 import { models } from '../index';
 
 const router = express.Router();
 
 router.get('/', async (req, res) => {
   try {
-    const wines = await models.Wine.findAll();
-    res.send(wines);
+    const countries = await models.Country.findAll();
+    res.send(countries);
   } catch (err) {
     console.log(err);
   }
@@ -14,8 +15,8 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const wine = await models.Wine.findOne({where: {id: req.params.id}, include: [models.Country, models.Grape]});
-    res.send(wine);
+    const country = await models.Country.findByPk(req.params.id);
+    return res.send(country);
   } catch (err) {
     console.log(err);
   }
@@ -23,16 +24,13 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const wine = await models.Wine.create({
+    const country = await models.Country.create({
       name: req.body.name,
-      description: req.body.description,
     });
-    res.send(wine);
+    return res.send(country);
   } catch (err) {
     console.log(err);
   }
 });
-
-router.post('/:id/Countries')
 
 export default router;

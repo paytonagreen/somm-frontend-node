@@ -8,21 +8,20 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      this.belongsToMany(models.Account, { through: 'AccountWines' });
-      this.belongsToMany(models.Country, { through: 'WineCountries' });
-      this.belongsToMany(models.Dish, { through: 'WineDishes' });
-      this.belongsToMany(models.Grape, { through: 'WineGrapes' });
-      this.belongsToMany(models.Producer, { through: 'WineProducers' });
-      this.belongsToMany(models.Region, { through: 'WineRegions' });
-      this.belongsToMany(models.Sauce, { through: 'WineSauces' });
-      this.belongsToMany(models.Subregion, { through: 'WineSubregions' });
+      Wine.belongsToMany(models.Account, { through: 'AccountWines' });
+      Wine.belongsToMany(models.Country, { through: 'WineCountries' });
+      Wine.belongsToMany(models.Dish, { through: 'WineDishes' });
+      Wine.belongsToMany(models.Grape, { through: 'WineGrapes' });
+      Wine.belongsToMany(models.Producer, { through: 'WineProducers' });
+      Wine.belongsToMany(models.Region, { through: 'WineRegions' });
+      Wine.belongsToMany(models.Sauce, { through: 'WineSauces' });
+      Wine.belongsToMany(models.Subregion, { through: 'WineSubregions' });
     }
   }
   Wine.init(
     {
       name: DataTypes.STRING,
       description: DataTypes.STRING,
-      hasVintage: DataTypes.BOOLEAN,
       vintage: DataTypes.INTEGER,
     },
     {

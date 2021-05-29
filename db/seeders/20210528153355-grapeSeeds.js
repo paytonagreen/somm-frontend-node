@@ -13,6 +13,7 @@ module.exports = {
       { name: 'Gewurztraminer', description: 'V delicious' },
       { name: 'Glera', description: 'V delicious' },
       { name: 'Grenache', description: 'V delicious' },
+      { name: 'Gruner', description: 'V delicious' },
       { name: 'Lambrusco', description: 'V delicious' },
       { name: 'Mourvedre', description: 'V delicious' },
       { name: 'Pinot Auxerrois', description: 'V delicious' },

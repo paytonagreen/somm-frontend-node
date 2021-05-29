@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon --exec babel-node src/index.ts --extensions \".ts\"",
     "tsc": "tsc --noEmit",
-    "build": "npm run tsc && babel src -d dist --extensions \".ts\""
+    "build": "npm run tsc && babel src -d dist --extensions \".ts\"",
+    "reset": "sequelize db:drop && sequelize db:create && sequelize db:migrate"
   },
   "keywords": [],
   "author": "",

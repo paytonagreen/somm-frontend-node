@@ -9,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsToMany(models.Account, { through: 'AccountDishes' });
-      this.belongsToMany(models.Wine, { through: 'WineDishes' });
+      Dish.belongsToMany(models.Account, { through: 'AccountDishes' });
+      Dish.belongsToMany(models.Wine, { through: 'WineDishes' });
     }
   }
   Dish.init(
@@ -22,6 +22,6 @@ module.exports = (sequelize, DataTypes) => {
       sequelize,
       modelName: 'Dish',
     }
-  );
+    );
   return Dish;
 };
