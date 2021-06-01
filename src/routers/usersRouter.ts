@@ -1,4 +1,5 @@
 import express from 'express';
+import { hashPassword } from '../auth';
 
 import { models } from '../index';
 
@@ -27,18 +28,7 @@ router.post('/', async (req, res) => {
   try {
     if (req.body.password) {
       const plainTextPassword = req.body.password;
-      const saltRounds = 10;
-      const hashedPassword = bcrypt.hash(
-        plainTextPassword,
-        saltRounds,
-        function (err: any, hash: any) {
-          if (err) {
-            throw new Error(err);
-          } else {
-            return hash;
-          }
-        }
-      );
+      const hashedPassword = hashPassword(plainTextPassword);
       const user = await models.User.create({
         name: req.body.name,
         password: hashedPassword,

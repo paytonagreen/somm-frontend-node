@@ -8,6 +8,7 @@ import grapesRouter from './routers/grapesRouter';
 import winesRouter from './routers/winesRouter';
 import countriesRouter from './routers/countriesRouter';
 import usersRouter from './routers/usersRouter';
+import authRouter from './routers/authRouter';
 
 const app = express();
 app.use(express.json());
@@ -19,6 +20,7 @@ app.use('/grapes', grapesRouter);
 app.use('/wines', winesRouter);
 app.use('/countries', countriesRouter);
 app.use('/users', usersRouter);
+app.use('/auth', authRouter);
 
 app.listen(process.env.PORT, () => {
   console.log(`Oi I'm listening at http://localhost:${process.env.PORT}`);
